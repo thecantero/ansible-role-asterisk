@@ -33,7 +33,7 @@
   when: not asterisk_build_deps|skipped
 
 - name: Let asterisk install dependencies
-  shell: export DEBIAN_FRONTEND=noninteractive && ./contrib/scripts/install_prereq install chdir={{ asterisk_src_dir }}
+  shell: DEBIAN_FRONTEND=noninteractive ./contrib/scripts/install_prereq install chdir={{ asterisk_src_dir }}
   when: asterisk_install_prereq_md5sum.stdout != asterisk_install_prereq_md5sum_new.stdout
 
 - block:
